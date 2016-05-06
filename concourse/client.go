@@ -47,6 +47,7 @@ type Client interface {
 	Resource(pipelineName string, resourceName string) (atc.Resource, bool, error)
 	ResourceVersions(pipelineName string, resourceName string, page Page) ([]atc.VersionedResource, Pagination, bool, error)
 	CheckResource(pipelineName string, resourceName string, version atc.Version) (bool, error)
+	DeleteResourceVersion(pipelineName string, resourceName string, id int) (bool, error)
 
 	BuildsWithVersionAsInput(pipelineName string, resourceName string, resourceVersionID int) ([]atc.Build, bool, error)
 	BuildsWithVersionAsOutput(pipelineName string, resourceName string, resourceVersionID int) ([]atc.Build, bool, error)
